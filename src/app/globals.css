@@ -1,26 +1,16 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  /* Özel Marka Renklerimiz */
+  --color-brand-dark: #0F172A; /* Derin lacivert - Kurumsallık */
+  --color-brand-blue: #1E3A8A; /* Marka mavisi */
+  --color-brand-light: #F8FAFC; /* Açık gri/beyaz - Arka plan */
+  --color-brand-accent: #EA580C; /* Canlı turuncu - Butonlar */
+  --color-brand-accent-hover: #C2410C; /* Turuncu üzerine gelince */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background-color: var(--color-brand-light);
+  color: var(--color-brand-dark);
   font-family: Arial, Helvetica, sans-serif;
 }
