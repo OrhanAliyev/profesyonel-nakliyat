@@ -59,7 +59,7 @@ export default function Iletisim() {
                   </div>
                   <div>
                     <h4 className="font-bold text-brand-dark text-lg">Merkez Ofis</h4>
-                    <p className="text-gray-600 font-light mt-1">Atatürk Mah. Lojistik Cad. No:12<br/>Ataşehir / İstanbul</p>
+                    <p className="text-gray-600 font-light mt-1"><br/>İstanbul</p>
                   </div>
                 </div>
                 
@@ -79,7 +79,7 @@ export default function Iletisim() {
                   </div>
                   <div>
                     <h4 className="font-bold text-brand-dark text-lg">E-Posta</h4>
-                    <p className="text-gray-600 font-light mt-1">info@profesyonelnakliyat.com</p>
+                    <p className="text-gray-600 font-light mt-1">destek@varenlojistik.com</p>
                   </div>
                 </div>
 

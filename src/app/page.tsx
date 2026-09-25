@@ -9,19 +9,21 @@ import Reveal from "./components/Reveal";
 import Counter from "./components/Counter";
 import QuickQuote from "./components/QuickQuote";
 
+// SLIDER İÇİN GERÇEK FOTOĞRAFLAR
 const heroImages = [
-  "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1920&auto=format&fit=crop", 
-  "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1920&auto=format&fit=crop", 
-  "https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=1920&auto=format&fit=crop"
+  "/images/kayan1.jpg", 
+  "/images/kayan2.jpg", 
+  "/images/kayan3.jpg"
 ];
 
+// GALERİ İÇİN GERÇEK FOTOĞRAFLAR
 const galleryImages = [
-  "https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=1200&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1200&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=1200&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=1200&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1611514468491-c529e71b56fb?q=80&w=1200&auto=format&fit=crop",
+  "/images/sahada1.jpg",
+  "/images/sahada2.jpg",
+  "/images/sahada3.jpg",
+  "/images/sahada4.jpg",
+  "/images/sahada5.jpg",
+  "/images/sahada6.jpg",
 ];
 
 export default function Home() {
@@ -38,15 +40,28 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen font-sans selection:bg-brand-accent selection:text-white bg-[#F8F9FA]">
       
-      {/* SOL ALT SABİT TELEFON İKONU */}
-      <a 
-        href="tel:+905421804660" 
-        className="fixed bottom-6 left-6 z-50 bg-[#1e3a8a] text-white p-3.5 md:p-4 rounded-full shadow-[0_4px_20px_rgba(30,58,138,0.5)] hover:scale-110 transition-all duration-300 flex items-center justify-center group"
-        title="Hemen Arayın"
-      >
-        <span className="absolute inset-0 rounded-full border-2 border-[#1e3a8a] animate-ping opacity-75"></span>
-        <Phone size={28} className="relative z-10 group-hover:rotate-12 transition-transform" />
-      </a>
+      {/* GOOGLE KURUMSAL KİMLİK BİLDİRİMİ (SCHEMA MARKUP) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LogisticsService",
+            "name": "Varen Lojistik",
+            "url": "https://varenlojistik.com",
+            "logo": "https://varenlojistik.com/images/logo.png",
+            "description": "Komple evden eve nakliyattan, gümrük sevkiyatlarına ve ekspres ticari yük taşımacılığına kadar tüm lojistik ihtiyaçlarınızda %100 sigorta garantisiyle hizmetinizdeyiz.",
+            "telephone": "+905421804660",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "İstanbul",
+              "addressCountry": "TR"
+            },
+            "areaServed": "TR",
+            "priceRange": "$$"
+          })
+        }}
+      />
 
       {/* GARANTİLİ ÇALIŞAN ANİMASYON VE TASARIM KODLARI */}
       <style dangerouslySetInnerHTML={{__html: `
@@ -89,21 +104,23 @@ export default function Home() {
         }
       `}} />
 
-      {/* TAM EKRAN HERO BÖLÜMÜ */}
-      <section className="relative w-full h-[100svh] md:h-[85vh] min-h-[700px] overflow-hidden bg-brand-dark flex flex-col justify-center">
+      {/* TAM EKRAN HERO BÖLÜMÜ (Mobilde çok uzun olmaması için min-h-[550px] yapıldı) */}
+      <section className="relative w-full h-[85svh] min-h-[550px] md:h-[85vh] md:min-h-[700px] overflow-hidden bg-brand-dark flex flex-col justify-center">
         {heroImages.map((img, index) => (
           <img 
             key={index}
             src={img}
             alt={`Slider ${index}`}
-            className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ease-in-out ${index === currentSlide ? "opacity-100" : "opacity-0"} transform scale-105`}
+            /* KESİN ÇÖZÜM: style={{ objectPosition: "80% center" }} ile doğrudan tarayıcıya resmi %80 oranında sağa yaslaması emredildi! */
+            style={{ objectPosition: "80% center" }}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${index === currentSlide ? "opacity-100" : "opacity-0"} transform md:scale-105 scale-100`}
           />
         ))}
 
         <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/80 md:via-brand-dark/50 to-transparent"></div>
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-black/40 md:bg-black/30"></div> 
         
-        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-28 md:pb-0 text-center md:text-left">
+        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 md:pb-0 text-center md:text-left">
           <Reveal direction="up">
             <div className="inline-flex items-center gap-3 px-4 py-2 md:px-5 md:py-2.5 rounded-full bg-white/10 text-white font-semibold text-xs md:text-sm mb-4 md:mb-6 border border-white/20 backdrop-blur-md shadow-2xl">
               <span className="relative flex h-2 w-2 md:h-3 md:w-3">
@@ -167,7 +184,7 @@ export default function Home() {
         <AboutSection />
       </div>
 
-      {/* İSTATİSTİK BÖLÜMÜ ("Her Gün" + %100 GERÇEKÇİ SVG KAMYON) */}
+      {/* İSTATİSTİK BÖLÜMÜ */}
       <section className="pt-20 pb-0 bg-gradient-to-b from-white to-[#F0F4F8] relative overflow-hidden border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <Reveal direction="up">
@@ -177,28 +194,28 @@ export default function Home() {
             <Reveal direction="up" delay={0.1}>
               <div className="flex flex-col items-center">
                 <div className="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center text-brand-accent mb-4 shadow-sm border border-orange-100"><Package size={32} /></div>
-                <div className="text-3xl md:text-4xl font-extrabold mb-1 text-[#2a2a4a] flex items-center justify-center"><Counter end={1000} /> <span className="ml-2 text-2xl uppercase">Ton</span></div>
+                <div className="text-3xl md:text-4xl font-extrabold mb-1 text-[#2a2a4a] flex items-center justify-center"><Counter end={450} /> <span className="ml-2 text-2xl uppercase">Ton</span></div>
                 <p className="text-gray-500 text-sm md:text-base font-bold uppercase tracking-wider mt-1">taşıma</p>
               </div>
             </Reveal>
             <Reveal direction="up" delay={0.2}>
               <div className="flex flex-col items-center">
                 <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-blue-500 mb-4 shadow-sm border border-blue-100"><TruckIcon size={32} /></div>
-                <div className="text-3xl md:text-4xl font-extrabold mb-1 text-[#2a2a4a] flex items-center justify-center"><Counter end={300} /></div>
+                <div className="text-3xl md:text-4xl font-extrabold mb-1 text-[#2a2a4a] flex items-center justify-center"><Counter end={120} /></div>
                 <p className="text-gray-500 text-sm md:text-base font-bold uppercase tracking-wider mt-1">sevkiyat</p>
               </div>
             </Reveal>
             <Reveal direction="up" delay={0.3}>
               <div className="flex flex-col items-center">
                 <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center text-green-500 mb-4 shadow-sm border border-green-100"><Globe size={32} /></div>
-                <div className="text-3xl md:text-4xl font-extrabold mb-1 text-[#2a2a4a] flex items-center justify-center"><Counter end={45} suffix=".000" /> <span className="ml-2 text-2xl uppercase">Km</span></div>
+                <div className="text-3xl md:text-4xl font-extrabold mb-1 text-[#2a2a4a] flex items-center justify-center"><Counter end={25} suffix=".000" /> <span className="ml-2 text-2xl uppercase">Km</span></div>
                 <p className="text-gray-500 text-sm md:text-base font-bold uppercase tracking-wider mt-1">yol</p>
               </div>
             </Reveal>
             <Reveal direction="up" delay={0.4}>
               <div className="flex flex-col items-center">
                 <div className="w-16 h-16 bg-yellow-50 rounded-full flex items-center justify-center text-yellow-500 mb-4 shadow-sm border border-yellow-100"><Users size={32} /></div>
-                <div className="text-3xl md:text-4xl font-extrabold mb-1 text-[#2a2a4a] flex items-center justify-center"><Counter end={150} /></div>
+                <div className="text-3xl md:text-4xl font-extrabold mb-1 text-[#2a2a4a] flex items-center justify-center"><Counter end={85} /></div>
                 <p className="text-gray-500 text-sm md:text-base font-bold uppercase tracking-wider mt-1">iş ortağı</p>
               </div>
             </Reveal>
@@ -298,31 +315,32 @@ export default function Home() {
             <div className="hidden md:block absolute top-[4.5rem] left-[10%] w-[80%] h-1 bg-white/10 rounded-full overflow-hidden z-0">
               <div className="animate-route rounded-full"></div>
             </div>
-            <Reveal direction="up" delay={0.1} className="relative z-10">
-              <div className="bg-gray-900/80 backdrop-blur-xl p-8 rounded-[2rem] shadow-2xl border border-gray-700 text-center h-full hover:-translate-y-2 hover:border-brand-accent transition-all duration-300 group">
-                <div className="w-20 h-20 mx-auto bg-brand-dark text-white rounded-full flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(255,255,255,0.05)] border-4 border-gray-700 group-hover:border-brand-accent group-hover:text-brand-accent transition-colors"><ClipboardCheck size={32} /></div>
+            
+            <Reveal direction="up" delay={0.1}>
+              <div className="relative z-10 bg-gray-900/80 backdrop-blur-xl p-8 rounded-[2rem] shadow-2xl border border-gray-700 text-center h-full hover:-translate-y-2 hover:border-brand-accent transition-all duration-300 group">
+                <div className="w-20 h-20 mx-auto bg-brand-dark text-white rounded-full flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(255,255,255,0.05)] border-4 border-gray-700 group-hover:border-brand-accent group-hover:text-white transition-colors"><ClipboardCheck size={32} /></div>
                 <h3 className="text-xl font-bold text-white mb-3">1. Dijital Ekspertiz</h3>
                 <p className="text-gray-400 font-light text-sm leading-relaxed">Hacim, ambalaj ve mesafe analiz edilerek size en uygun araç ve net fiyat sunulur.</p>
               </div>
             </Reveal>
-            <Reveal direction="up" delay={0.2} className="relative z-10">
-              <div className="bg-gray-900/80 backdrop-blur-xl p-8 rounded-[2rem] shadow-2xl border border-gray-700 text-center h-full hover:-translate-y-2 hover:border-brand-accent transition-all duration-300 group">
-                <div className="w-20 h-20 mx-auto bg-brand-dark text-white rounded-full flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(255,255,255,0.05)] border-4 border-gray-700 group-hover:border-brand-accent group-hover:text-brand-accent transition-colors"><PackageOpen size={32} /></div>
+            <Reveal direction="up" delay={0.2}>
+              <div className="relative z-10 bg-gray-900/80 backdrop-blur-xl p-8 rounded-[2rem] shadow-2xl border border-gray-700 text-center h-full hover:-translate-y-2 hover:border-brand-accent transition-all duration-300 group">
+                <div className="w-20 h-20 mx-auto bg-brand-dark text-white rounded-full flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(255,255,255,0.05)] border-4 border-gray-700 group-hover:border-brand-accent group-hover:text-white transition-colors"><PackageOpen size={32} /></div>
                 <h3 className="text-xl font-bold text-white mb-3">2. Özel Ambalaj</h3>
                 <p className="text-gray-400 font-light text-sm leading-relaxed">Uzman ekibimiz eşyalarınızı demonte eder ve darbeye dayanıklı şekilde izole eder.</p>
               </div>
             </Reveal>
-            <Reveal direction="up" delay={0.3} className="relative z-10">
-              <div className="bg-gray-900/80 backdrop-blur-xl p-8 rounded-[2rem] shadow-2xl border border-brand-accent/50 text-center h-full hover:-translate-y-2 hover:border-brand-accent transition-all duration-300 group relative overflow-hidden">
+            <Reveal direction="up" delay={0.3}>
+              <div className="relative z-10 bg-gray-900/80 backdrop-blur-xl p-8 rounded-[2rem] shadow-2xl border border-brand-accent/50 text-center h-full hover:-translate-y-2 hover:border-brand-accent transition-all duration-300 group relative overflow-hidden">
                 <div className="absolute inset-0 bg-brand-accent/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div className="w-20 h-20 mx-auto bg-brand-accent text-white rounded-full flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(255,107,0,0.4)] border-4 border-gray-700"><TruckIcon size={32} /></div>
                 <h3 className="text-xl font-bold text-white mb-3">3. Güvenli Sevkiyat</h3>
                 <p className="text-gray-400 font-light text-sm leading-relaxed relative z-10">Eşyalarınız çelik kasa, süspansiyonlu nakliye araçlarımıza yüklenir ve yola çıkar.</p>
               </div>
             </Reveal>
-            <Reveal direction="up" delay={0.4} className="relative z-10">
-              <div className="bg-gray-900/80 backdrop-blur-xl p-8 rounded-[2rem] shadow-2xl border border-gray-700 text-center h-full hover:-translate-y-2 hover:border-brand-accent transition-all duration-300 group">
-                <div className="w-20 h-20 mx-auto bg-brand-dark text-white rounded-full flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(255,255,255,0.05)] border-4 border-gray-700 group-hover:border-brand-accent group-hover:text-brand-accent transition-colors"><HomeIcon size={32} /></div>
+            <Reveal direction="up" delay={0.4}>
+              <div className="relative z-10 bg-gray-900/80 backdrop-blur-xl p-8 rounded-[2rem] shadow-2xl border border-gray-700 text-center h-full hover:-translate-y-2 hover:border-brand-accent transition-all duration-300 group">
+                <div className="w-20 h-20 mx-auto bg-brand-dark text-white rounded-full flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(255,255,255,0.05)] border-4 border-gray-700 group-hover:border-brand-accent group-hover:text-white transition-colors"><HomeIcon size={32} /></div>
                 <h3 className="text-xl font-bold text-white mb-3">4. Montaj & Teslimat</h3>
                 <p className="text-gray-400 font-light text-sm leading-relaxed">Yeni adresinizde eşyalar odalara dağıtılır, mobilyaların montajı yapılarak teslim edilir.</p>
               </div>
@@ -380,6 +398,45 @@ export default function Home() {
                   <li className="flex items-start gap-3 text-sm font-medium text-gray-700"><CheckCircle2 size={18} className="text-brand-accent mt-0.5 shrink-0" /><span>Yalnızca Size Özel Araç Tahsisi</span></li>
                   <li className="flex items-start gap-3 text-sm font-medium text-gray-700"><CheckCircle2 size={18} className="text-brand-accent mt-0.5 shrink-0" /><span>Aktarmasız ve Duraksız Özel Rota</span></li>
                   <li className="flex items-start gap-3 text-sm font-medium text-gray-700"><CheckCircle2 size={18} className="text-brand-accent mt-0.5 shrink-0" /><span>Tıbbi ve Hassas Cihaz Taşımacılığı</span></li>
+                </ul>
+                <Link href="/iletisim" className="inline-flex items-center gap-2 text-sm font-bold text-brand-accent mt-auto group-hover:translate-x-2 transition-transform">Detaylı İncele <ArrowRight size={16} /></Link>
+              </div>
+            </Reveal>
+            <Reveal direction="up" delay={0.4}>
+              <div className="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-lg border border-gray-100 hover:shadow-2xl hover:border-brand-accent/40 transition-all duration-300 h-full flex flex-col relative overflow-hidden group">
+                <div className="bg-brand-light w-16 h-16 rounded-full flex items-center justify-center text-brand-accent mb-6 group-hover:bg-brand-accent group-hover:text-white transition-all duration-300"><Ship size={28} /></div>
+                <h3 className="text-2xl font-bold text-brand-dark mb-4">Gümrük ve Antrepo Sevkiyatları</h3>
+                <p className="text-gray-600 font-light text-sm leading-relaxed mb-6 flex-grow">İthalat ve ihracat süreçlerinizin aksamaması adına liman, havalimanı ve karayolu gümrük noktalarına kesintisiz hızlı sevkiyatlar gerçekleştiriyoruz. Gümrük lojistiği mevzuatlarına tam hakim uzman kadromuzla, evrak ve onay süreçlerinizin ardından ihracat emtialarınızı antrepolardan alarak en güvenli şekilde gümrük alanlarına sevk ediyoruz.</p>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-start gap-3 text-sm font-medium text-gray-700"><CheckCircle2 size={18} className="text-brand-accent mt-0.5 shrink-0" /><span>Gümrük Mevzuatına Hakim Operasyon</span></li>
+                  <li className="flex items-start gap-3 text-sm font-medium text-gray-700"><CheckCircle2 size={18} className="text-brand-accent mt-0.5 shrink-0" /><span>Liman ve Serbest Bölge Transferleri</span></li>
+                  <li className="flex items-start gap-3 text-sm font-medium text-gray-700"><CheckCircle2 size={18} className="text-brand-accent mt-0.5 shrink-0" /><span>İhracat Mallarına Çelik Kasa Araçlar</span></li>
+                </ul>
+                <Link href="/iletisim" className="inline-flex items-center gap-2 text-sm font-bold text-brand-accent mt-auto group-hover:translate-x-2 transition-transform">Detaylı İncele <ArrowRight size={16} /></Link>
+              </div>
+            </Reveal>
+            <Reveal direction="up" delay={0.5}>
+              <div className="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-lg border border-gray-100 hover:shadow-2xl hover:border-brand-accent/40 transition-all duration-300 h-full flex flex-col relative overflow-hidden group">
+                <div className="bg-brand-light w-16 h-16 rounded-full flex items-center justify-center text-brand-accent mb-6 group-hover:bg-brand-accent group-hover:text-white transition-all duration-300"><PlaneTakeoff size={28} /></div>
+                <h3 className="text-2xl font-bold text-brand-dark mb-4">Havayolu Lojistik Çözümleri</h3>
+                <p className="text-gray-600 font-light text-sm leading-relaxed mb-6 flex-grow">Uluslararası ticarette veya çok acil yurt içi gönderimlerinizde havayolu kargo transfer hizmetimiz devreye girer. Paletli ticari yükleriniz veya özel kargolarınız adresinizden alınarak ilgili havalimanı kargo terminallerine hasarsız ulaştırılır. Uçuş saatlerine entegre, dakik ve profesyonel havalimanı lojistiğini sizin adınıza yönetiyoruz.</p>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-start gap-3 text-sm font-medium text-gray-700"><CheckCircle2 size={18} className="text-brand-accent mt-0.5 shrink-0" /><span>Havalimanı Kargo Terminal Transferi</span></li>
+                  <li className="flex items-start gap-3 text-sm font-medium text-gray-700"><CheckCircle2 size={18} className="text-brand-accent mt-0.5 shrink-0" /><span>Paletli ve Ağır İhracat Yükü Taşıma</span></li>
+                  <li className="flex items-start gap-3 text-sm font-medium text-gray-700"><CheckCircle2 size={18} className="text-brand-accent mt-0.5 shrink-0" /><span>Uçuş Saatlerine Entegre Dakik Teslimat</span></li>
+                </ul>
+                <Link href="/iletisim" className="inline-flex items-center gap-2 text-sm font-bold text-brand-accent mt-auto group-hover:translate-x-2 transition-transform">Detaylı İncele <ArrowRight size={16} /></Link>
+              </div>
+            </Reveal>
+            <Reveal direction="up" delay={0.6}>
+              <div className="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-lg border border-gray-100 hover:shadow-2xl hover:border-brand-accent/40 transition-all duration-300 h-full flex flex-col relative overflow-hidden group">
+                <div className="bg-brand-light w-16 h-16 rounded-full flex items-center justify-center text-brand-accent mb-6 group-hover:bg-brand-accent group-hover:text-white transition-all duration-300"><ShieldAlert size={28} /></div>
+                <h3 className="text-2xl font-bold text-brand-dark mb-4">Güvenli & İklimlendirmeli Depolama</h3>
+                <p className="text-gray-600 font-light text-sm leading-relaxed mb-6 flex-grow">Yeni evinize veya ofisinize geçiş sürecinde eşyalarınız için güvenli bir alana ihtiyaç duyduğunuzda, modern antrepo hizmetlerimiz yanınızda. Eşyalarınızı günlük, aylık veya yıllık periyotlarla; neme, rutubete ve yangına karşı korumalı, 7/24 kamera sistemiyle izlenen tesislerimizde ambalajlı ve sigortalı bir şekilde muhafaza ediyoruz.</p>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-start gap-3 text-sm font-medium text-gray-700"><CheckCircle2 size={18} className="text-brand-accent mt-0.5 shrink-0" /><span>7/24 Kamera ve Özel Güvenlik Alarmı</span></li>
+                  <li className="flex items-start gap-3 text-sm font-medium text-gray-700"><CheckCircle2 size={18} className="text-brand-accent mt-0.5 shrink-0" /><span>Nem ve Rutubet Önleyici İklimlendirme</span></li>
+                  <li className="flex items-start gap-3 text-sm font-medium text-gray-700"><CheckCircle2 size={18} className="text-brand-accent mt-0.5 shrink-0" /><span>Size Özel, Kilitli ve İzole Odalar</span></li>
                 </ul>
                 <Link href="/iletisim" className="inline-flex items-center gap-2 text-sm font-bold text-brand-accent mt-auto group-hover:translate-x-2 transition-transform">Detaylı İncele <ArrowRight size={16} /></Link>
               </div>

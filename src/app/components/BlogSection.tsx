@@ -9,7 +9,7 @@ const blogPosts = [
     excerpt: "Taşınma sürecini stresten uzak, planlı ve hasarsız atlatmanız için uzman ekibimizden hayat kurtaran ipuçları.",
     category: "Taşınma Rehberi",
     readTime: "4 dk okuma",
-    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    image: "/images/blog1.jpg"
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const blogPosts = [
     excerpt: "Bardaklar, tabaklar ve hassas elektronik cihazlarınızı kolilerken uygulamanız gereken profesyonel ambalajlama teknikleri.",
     category: "Paketleme",
     readTime: "3 dk okuma",
-    image: "https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    image: "/images/blog2.jpg"
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const blogPosts = [
     excerpt: "Uzun yol taşımacılığında maliyetleri etkileyen faktörler ve bütçenizi korumanızı sağlayacak şeffaf fiyatlandırma rehberi.",
     category: "Fiyatlandırma",
     readTime: "5 dk okuma",
-    image: "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    image: "/images/blog3.jpg"
   }
 ];
 

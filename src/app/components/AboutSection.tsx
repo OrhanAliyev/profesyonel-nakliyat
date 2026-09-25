@@ -1,7 +1,6 @@
 "use client";
 
 import { ShieldCheck, Truck, Users, Trophy, CheckCircle2 } from "lucide-react";
-import Link from "next/link";
 import Reveal from "./Reveal";
 
 export default function AboutSection() {
@@ -10,16 +9,16 @@ export default function AboutSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
           
-          {/* SOL TARAF: GÖRSEL VE KUTULAR (Eski Tasarım Düzenine Geri Dönüldü) */}
+          {/* SOL TARAF: GÖRSEL VE KUTULAR */}
           <div className="lg:w-1/2 relative w-full">
             
             <Reveal direction="left">
-              {/* ANA GÖRSEL KUTUSU (İçeriği Merkezler) */}
+              {/* ANA GÖRSEL KUTUSU */}
               <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100 h-[450px] md:h-[550px] flex items-center justify-center group">
                 
-                {/* Arka Plan Fotoğrafı */}
+                {/* Arka Plan Fotoğrafı - KENDİ FOTOĞRAFINA GÜNCELLENDİ */}
                 <img 
-                  src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=1200&auto=format&fit=crop" 
+                  src="/images/hakkimizda1.jpg" 
                   alt="Varen Lojistik" 
                   className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000"
                 />
@@ -27,7 +26,7 @@ export default function AboutSection() {
                 {/* Okunabilirliği Artırmak İçin Hafif Karartma */}
                 <div className="absolute inset-0 bg-brand-dark/30"></div> 
                 
-                {/* BEYAZ KART: Eski Tasarımdaki Gibi Tam Ortada */}
+                {/* BEYAZ KART */}
                 <div className="relative z-10 p-8 md:p-10 flex flex-col items-center text-center bg-white/90 backdrop-blur-md rounded-3xl border border-white/50 shadow-xl mx-6 max-w-[320px]">
                   <div className="bg-brand-accent p-4 rounded-full shadow-lg shadow-brand-accent/40 mb-5 text-white">
                     <Trophy className="w-10 h-10" />
@@ -40,7 +39,7 @@ export default function AboutSection() {
               </div>
             </Reveal>
 
-            {/* KOYU LACİVERT KART: 15+ Yıllık Tecrübe (Eski Tasarımdaki Gibi Sağ Altta) */}
+            {/* KOYU LACİVERT KART: 15+ Yıllık Tecrübe */}
             <Reveal direction="up" delay={0.3}>
               <div className="absolute -bottom-8 -right-2 md:-right-8 bg-[#0f172a] text-white p-5 md:p-6 rounded-2xl shadow-2xl border-[4px] border-white z-20 transform hover:scale-105 transition-transform duration-300">
                 <div className="flex items-center gap-4">
@@ -54,7 +53,7 @@ export default function AboutSection() {
             
           </div>
 
-          {/* SAĞ TARAF: METİNLER VE İSTATİSTİKLER (Aynı Kaldı) */}
+          {/* SAĞ TARAF: METİNLER VE İSTATİSTİKLER */}
           <div className="lg:w-1/2">
             
             <Reveal direction="up">
@@ -108,10 +107,16 @@ export default function AboutSection() {
               </ul>
             </Reveal>
 
+            {/* BUTON WHATSAPP OLARAK GÜNCELLENDİ */}
             <Reveal direction="up" delay={0.5}>
-              <Link href="/#iletisim" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-dark hover:bg-gray-900 text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 w-full sm:w-auto">
-                Hemen Ekspertiz İste
-              </Link>
+              <a 
+                href="https://wa.me/905421804660" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-dark hover:bg-gray-900 text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 w-full sm:w-auto"
+              >
+                Hemen Fiyat Al
+              </a>
             </Reveal>
           </div>
 

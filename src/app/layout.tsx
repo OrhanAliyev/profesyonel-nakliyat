@@ -9,10 +9,36 @@ import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
 const inter = Inter({ subsets: ["latin"] });
 
+// SEO SEVİYESİ EN ÜST DÜZEYE ÇIKARILMIŞ METADATA
 export const metadata: Metadata = {
-  title: "Varen Lojistik | Güvenilir Şehir İçi ve Şehirler Arası Taşıma",
-  description: "İstanbul şehir içi ve Türkiye geneli sigortalı, asansörlü, profesyonel evden eve nakliyat hizmeti. Hemen hızlı fiyat teklifi alın.",
-  keywords: "evden eve nakliyat, istanbul nakliye, şehirler arası taşımacılık, asansörlü nakliyat, sigortalı taşıma",
+  title: "Varen Lojistik | Şehir İçi ve Şehirler Arası Kurumsal Taşıma",
+  description: "Türkiye'nin dört bir yanına kurumsal lojistik. Komple nakliyat, gümrük sevkiyatları, ekspres ticari yük ve sigortalı asansörlü evden eve taşımacılıkta güvenilir çözüm ortağınız.",
+  keywords: [
+    "lojistik", 
+    "nakliyat", 
+    "şehirler arası taşıma", 
+    "istanbul lojistik", 
+    "gümrük sevkiyatı", 
+    "varen lojistik", 
+    "evden eve nakliyat", 
+    "asansörlü nakliyat", 
+    "sigortalı taşıma"
+  ],
+  openGraph: {
+    title: "Varen Lojistik | Yükünüz Bize, Zamanınız Size Kalsın",
+    description: "Türkiye'nin 81 iline kesintisiz, güvenli ve hızlı lojistik destek sağlıyoruz.",
+    url: "https://varenlojistik.com",
+    siteName: "Varen Lojistik",
+    locale: "tr_TR",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://varenlojistik.com",
+  },
+  // GOOGLE SİTE DOĞRULAMA KODU BURAYA EKLENDİ
+  verification: {
+    google: "google_dogrulama_kodunu_buraya_yapisitirin",
+  },
 };
 
 export default function RootLayout({
@@ -26,12 +52,13 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "MovingCompany",
     "name": "Varen Lojistik",
+    "url": "https://varenlojistik.com",
     "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
     "description": "İstanbul merkezli asansörlü, sigortalı evden eve ve şehirler arası Varen Lojistik firması.",
     "telephone": "+90 542 180 46 60",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Atatürk Mah. Lojistik Cad. No:12",
+      "streetAddress": " ",
       "addressLocality": "Ataşehir",
       "addressRegion": "İstanbul",
       "addressCountry": "TR"
@@ -73,6 +100,14 @@ export default function RootLayout({
 
         {/* TÜM SAYFALARDA SAĞ ALTTA SABİT DURACAK WHATSAPP BUTONU */}
         <FloatingWhatsApp />
+        <a
+  href="tel:+905421804660"
+  className="fixed bottom-6 left-6 z-50 bg-[#1e3a8a] text-white p-3.5 md:p-4 rounded-full shadow-[0_4px_20px_rgba(30,58,138,0.5)] hover:scale-110 transition-all duration-300 flex items-center justify-center group"
+  title="Hemen Arayın"
+>
+  <span className="absolute inset-0 rounded-full border-2 border-[#1e3a8a] animate-ping opacity-75"></span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="relative z-10 group-hover:rotate-12 transition-transform"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+</a>
       </body>
     </html>
   );

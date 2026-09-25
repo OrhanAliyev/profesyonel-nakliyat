@@ -10,7 +10,7 @@ const fullBlogPosts = [
     author: "Varen Lojistik Uzman Ekibi",
     category: "Taşınma Rehberi",
     readTime: "4 dk okuma",
-    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/images/blog1.jpg",
     content: (
       <>
         <p className="mb-6 leading-relaxed">Taşınma süreci, doğru planlanmadığında oldukça stresli ve yorucu bir deneyime dönüşebilir. Ancak profesyonel bir <strong className="text-brand-dark font-semibold">evden eve nakliyat firmasıyla</strong> çalışmak ve süreci önceden organize etmek, bu stresi tamamen ortadan kaldırır. İşte sorunsuz bir taşınma için dikkat etmeniz gereken altın kurallar.</p>
@@ -32,7 +32,7 @@ const fullBlogPosts = [
     author: "Ambalaj ve Paketleme Departmanı",
     category: "Paketleme Teknikleri",
     readTime: "3 dk okuma",
-    image: "https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/images/blog2.jpg",
     content: (
       <>
         <p className="mb-6 leading-relaxed">Porselen takımlar, cam eşyalar, televizyonlar ve tablolar taşınma sırasında en çok hasar gören ürünlerdir. Profesyonel <strong className="text-brand-dark font-semibold">ambalajlama teknikleri</strong> ile bu riskleri sıfıra indirmek mümkündür.</p>
@@ -47,7 +47,7 @@ const fullBlogPosts = [
     author: "Fiyatlandırma ve Ekspertiz Ekibi",
     category: "Fiyatlandırma",
     readTime: "5 dk okuma",
-    image: "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/images/blog3.jpg",
     content: (
       <>
         <p className="mb-6 leading-relaxed">Şehirler arası taşınmalarda fiyatı belirleyen birçok farklı kriter bulunmaktadır. Şeffaf ve sürpriz maliyetler içermeyen bir teklif almak için bu kriterleri bilmeniz oldukça önemlidir.</p>
